@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Event Object Example</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <input type="button" value="Click Me" id="myBtn" />
+    <!--<div><input type="button" value="Click Me" id="myBtn2" /></div>-->
+    <script type="text/javascript">
+        var btn = document.getElementById("myBtn");
+        btn.onclick = function(event){
+            alert(event.eventPhase + " -- 目标对象阶段");   //2
+        };
+        
+        document.body.addEventListener("click", function(event){
+            alert(event.eventPhase + " -- 捕获阶段");   //1
+        }, true);
+
+//        document.body.onclick = function(event){
+//            alert(event.eventPhase);   //3
+//        };
+        document.body.addEventListener("click", function(event){
+            alert(event.eventPhase + " -- 冒泡阶段");   //3
+        }, false);
+
+    </script>
+</body>
+</html>

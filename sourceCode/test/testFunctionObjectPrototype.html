@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="" />
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript" charset="utf-8">
+			Object.prototype.a = 1;
+		    Function.prototype.a = 2;
+		    function X(){
+		    }
+		
+		    var test = new X();
+			
+//			alert(Object instanceof Object); // true  
+//			alert(Function instanceof Object);// true    
+//			alert(Object instanceof Function);// true   
+//			alert(Function instanceof Function);// true   
+
+//			function foo(){};  
+//			alert(foo instanceof Function); // true  
+//			alert(foo instanceof Object); // true  
+//			alert(new foo() instanceof Object); // true 
+//			alert(new foo() instanceof Function); // false 
+			
+//			alert(Object.constructor);
+//				// function Function(){ [native code] }
+//			alert(Function.constructor);
+//				// function Function(){ [native code] }
+//			alert(Function);
+//				// function Function(){ [native code] }
+//			alert(X.constructor);
+//				// function Function(){ [native code] }
+//			alert(X instanceof Object);//true
+//			alert(Object instanceof X);//false
+//			alert(X instanceof Function);//true
+//			alert(typeof X);//function
+//			alert(typeof Object);//function
+
+//			alert(Object.prototype.constructor);
+//			//function Object(){[native code]}
+//			alert(Object.constructor);
+			//function Function(){[native code]}
+//			alert(Function.prototype instanceof Object);//true
+//			alert(Function.prototype instanceof Function);//true
+//			return;
+			//true  说明Function的原型是Object类型
+//			alert(Function.__proto__ == Function.prototype);
+//			//true  说明Function既是
+//			alert(Function.__proto__.constructor == Function);//true
+//			alert(Function.constructor == Function);//true
+//			alert(Object.__proto__ == Function.prototype);//true
+//			alert(Object.constructor == Function); //true
+//			alert(Object.prototype == Function.prototype);//false
+//			alert(Function.prototype);//function Empty() {}
+//			alert(Function.__proto__);//function Empty() {}
+
+//			alert(Object.prototype);//[object Object]
+//			alert(Object.__proto__);//function Empty() {}
+//			alert(Object.constructor);//function Function(){ [native code] } 
+		
+//			alert(String.prototype);//Empty
+//			alert(String.__proto__);//function Empty() {}
+//			alert(String.constructor);//function Function(){ [native code] }
+			
+//			alert(Array.prototype);//Empty
+//			alert(Array.__proto__);//function Empty() {}
+//			alert(Array.constructor);//function Function(){ [native code] }
+			
+//			alert(Number.prototype);//0
+//			alert(Number.__proto__);//function Empty() {}
+//			alert(Number.constructor);//function Function(){ [native code] }
+
+			alert(X.prototype);//[object Object]
+			alert(X.prototype instanceof Object);//true
+			alert(X.prototype == Function.prototype);//false
+			alert(X.prototype == Object.prototype);//false
+			alert(X.__proto__);//function Empty() {}
+			alert(X.constructor);//function Function(){ [native code] } 
+			
+			var instance = new X();
+			alert(instance.prototype);//undefined 
+			alert(instance.__proto__);//[object Object]
+			alert(instance.__proto__ == Object.prototype);//false
+			alert(instance.constructor);//function X(){} 
+
+//			alert(Object.prototype instanceof Object);//false
+//			alert(typeof Object.prototype);
+//			alert(String.__proto__    == Function.prototype);
+//			alert(String.constructor == Function);//true
+			
+//			alert(Function.__proto__    == Function.prototype);
+//			alert(Function.prototype.__proto__ == Object.prototype); 
+//			alert(test.__proto__.__proto__.constructor); 
+		</script>
+	</body>
+</html>

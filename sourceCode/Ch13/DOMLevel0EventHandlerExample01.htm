@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Level 0 Event Handler Example</title>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+
+    <!--<div>-->
+        <!--测试dom级事件处理 的是否具有事件冒泡-->
+        <!--<input type="button" id="myBtn" value="Click Me" />-->
+    <!--</div>-->
+
+    <div id="myBtn">
+        测试dom级事件处理 的是否具有事件冒泡
+        <input type="button"  value="Click Me" />
+    </div>
+
+    <input type="button" id="myRemoveBtn" value="Remove Event Handler" />
+    <script type="text/javascript">
+//        var btn = document.getElementById("myBtn");
+
+        // 测试事件冒泡
+        var btn = document.getElementById("myBtn");
+        btn.onclick = function(){
+            alert(this.id);
+        };
+        
+        var removeBtn = document.getElementById("myRemoveBtn");
+        removeBtn.onclick = function(){
+            btn.onclick = null;
+        };
+    </script>
+</body>
+</html>

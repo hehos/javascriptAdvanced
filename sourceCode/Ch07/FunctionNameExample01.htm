@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Function Name Example</title>
+        <script type="text/javascript" charset="utf-8">
+//      	alert("kk");
+        </script>
+    </head>
+    <body>
+        <script type="text/javascript">
+        
+            function functionName(){
+                //noop
+            }
+			
+            var func1 = functionName;
+            
+            var func2 = function() {};
+            var func3 = func2;
+            
+            //works only in Firefox, Safari, Chrome, and Opera
+            alert(func1.name); //"functionName"
+            alert(func3.name);
+
+        </script>
+     
+    </body>
+</html>

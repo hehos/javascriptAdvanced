@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logical AND Example 2</title>
+    <script type="text/javascript">
+    
+        var found = false;
+        var result = (found && someUndeclaredVariable);    //no error
+        //短路判断
+//      alert(result);    //works
+		
+		//如果第一个数是对象，则返回第二个数
+//		alert((new String("bb")) && "aa");//"aa"
+		//如果两个操作数都是对象，返回第二个对象
+//		alert("aa" && (new String("bb")));//bb
+//		alert(88 && ((new Object()).toString = "bb"));//bb
+		var obj = new Object();
+		obj.toString = function() {
+			return "bb";
+		}
+		
+		alert((new Boolean(true)) && obj);//bb
+//		alert(new Undefined());
+		//如果第二个操作数是对象则只有在第一个操作数的求值为true时返回该对象，负责短路判断返回false
+//		alert(true && (new String("bb")));//false
+//		alert(false && (new String("bb")));//false
+		//如果一个操作数为null、NaN、undefined返回null、NaN、undefined，
+		//并且为第一个操作数时是短路判断  someUndeclaredVariable是一个未定义的
+//		alert(null && someUndeclaredVariable);
+//		alert(NaN && someUndeclaredVariable);
+//		alert(undefined && someUndeclaredVariable);
+
+
+    </script>
+
+</head>
+<body>
+  
+</body>
+</html>

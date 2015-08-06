@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiple Properties Example</title>
+    <script type="text/javascript">
+
+        var book = {};
+        
+        Object.defineProperties(book, {
+            _year: {
+                value: 2004,
+                writable: true
+            },
+            
+            edition: {
+                value: 1,
+                writable: true
+            },
+            
+            year: {            
+                get: function(){
+                    return this._year;
+                },
+                
+                set: function(newValue){
+                    if (newValue > 2004) {
+                    	// 1，修改变量值，需要在数据属性中申明writable: true，负责修改无效。
+                    	// 2，这里的闭包的this不是指向window是因为defineProperties函数的内部特殊处理
+                        this._year = newValue;  
+                        this.edition += newValue - 2004;
+                    }                  
+                }            
+            }        
+        });
+        alert(book.year);
+        book.year = 2005;
+        alert(book.year);
+        alert(book.edition);   //2
+
+		/* 测试上面第二条的设想 -----闭包的this不是指向window*/
+		function testClosureThis() {
+			
+		}
+		
+		
+    </script>
+</head>
+<body>
+    <p>Note: this example only works in browsers that have implemented the ECMAScript 5 <code>Object.defineProperty()</code> method (IE9 and Firefox 4).</p>
+</body>
+</html>

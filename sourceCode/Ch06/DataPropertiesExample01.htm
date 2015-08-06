@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Properties Example</title>
+    <meta name="" content=""/>
+    
+    <script type="text/javascript">
+
+        var person = { };
+        Object.defineProperty(person, "name", {
+        	configurable: true,
+//          writable: true, // 不允许修改name属性值
+			enumerable: true,
+            value: "Nicholas"
+        });
+        
+        alert(person.name); //Nicholas
+        person.name = "Michael";
+        alert(person.name); // Nicholas
+        alert("执行for in语句开始");
+		for(obj in person) {
+			alert(person[obj]);
+		}
+ 		alert("执行for in语句结束");
+
+		Object.defineProperty(person, "name", {
+            configurable: true,
+            writable: true,
+            value: "Nicholas2"
+        });
+        
+        alert(person.name); //Nicholas
+        person.name = "Michael2";
+        alert(person.name); // Nicholas
+
+
+		Object.defineProperty(person, "name", {
+            configurable: true,
+            value: "Nicholas3"
+        });
+        
+        alert(person.name); //Nicholas
+        person.name = "Michael3";
+        alert(person.name); // Nicholas
+
+    </script>
+</head>
+<body>
+    <p>Note: this example only works in browsers that have implemented the ECMAScript 5 <code>Object.defineProperty()</code> method (IE9 and Firefox 4).</p>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="" />
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript" charset="utf-8">
+			function F() {}
+			F.a = new String("aaa");
+			var v = new F();
+			//测试typeof运算符
+//			alert(typeof Object + " Object");
+//			alert(typeof Function + " Function");
+//			alert(typeof Array + " Array");
+//			alert(typeof Date + " Date");
+//			alert(typeof String + " String");
+//			alert(typeof F + " F自定义函数");
+//			alert(typeof v + " F自定义函数的实例");//object
+//			alert(typeof null + " null");//object
+			alert(F["a"]);
+			alert(typeof F["a"]);
+			
+			
+		</script>
+	</body>
+</html>

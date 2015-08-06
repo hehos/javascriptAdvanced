@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Privileged Method Example 2</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+        
+            (function(){
+            
+                var name = "";
+                
+                Person = function(value){                
+                    name = value;                
+                };
+                
+                Person.prototype.getName = function(){
+                    return name;
+                };
+                
+                Person.prototype.setName = function (value){
+                    name = value;
+                };
+            })();
+            
+            var person1 = new Person("Nicholas");
+            alert(person1.getName());   //"Nicholas"
+            person1.setName("Greg");
+            alert(person1.getName());   //"Greg"
+                               
+            var person2 = new Person("Michael");
+            alert(person1.getName());   //"Michael"  被改变了，因为使用作用域中的变量变成了静态变量
+            alert(person2.getName());   //"Michael"
+			
+			var person3 = new Person("xiaoming");
+			alert(person2.getName());  //  "xiaoming"  被改变了。
+			
+			
+        </script>
+     
+    </body>
+</html>

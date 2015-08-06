@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parasitic Combination Inheritance Example</title>
+    <script type="text/javascript">
+        //使用更具面向对象封装的方式  改写寄生组合式继承
+        function object(o){
+            function F(){}
+            F.prototype = o;
+            return new F();
+        }
+    
+    	//
+        function inheritPrototype(subType, superType){
+            var prototype = object(superType.prototype);   //创建 原型object
+            prototype.constructor = subType;               //增强 object
+            subType.prototype = prototype;                 //指定 object
+        }
+//		function inheritPrototype(subType, superType){
+//          superType.prototype.constructor = subType;               //augment object
+//          subType.prototype = superType.prototype;                 //assign object
+//      }
+                                
+        function SuperType(name){
+            this.name = name;
+            this.colors = ["red", "blue", "green"];
+            if(typeof this.sayName != "function" ) {
+		        SuperType.prototype.sayName = function(){
+		            alert(this.name);
+		        };
+            }
+        }
+        
+
+        function SubType(name, age){  
+//      	alert("in subType");
+            SuperType.call(this, name);
+            
+            this.age = age;
+			if(typeof this.sayAge != "function") {
+		        SubType.prototype.sayAge = function(){
+		            alert(this.age);
+		        };
+			}
+        }
+        
+        
+//      SubType.prototype.testtt = function() {
+//      	alert("测试原型对象被重写前的函数调用");
+//      }
+		//执行该函数后SubType.prototype将指向新的原型对象，上面的testtt方法将不能够调用
+        inheritPrototype(SubType, SuperType);
+//      alert("prototype reset finish");
+        
+        var instance1 = new SubType("Nicholas", 29);
+//     	alert(instance1.constructor == SubType);
+        instance1.colors.push("black");
+        alert(instance1.colors);  //"red,blue,green,black"
+        instance1.sayName();      //"Nicholas";
+        instance1.sayAge();       //29
+      
+     
+        var instance2 = new SubType("Greg", 27);
+        alert(instance2.colors);  //"red,blue,green"
+        instance2.sayName();      //"Greg";
+        instance2.sayAge();       //27
+
+//		var instance3 = new SuperType();
+//      alert(instance3 instanceof SuperType);
+//      alert(instance3.constructor == SuperType);
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

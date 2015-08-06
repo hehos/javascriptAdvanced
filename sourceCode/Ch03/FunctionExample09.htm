@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Function Example 9</title>
+    <script type="text/javascript">
+        function doAdd(num1, num2) {
+            //if(arguments.length == 1) {
+                arguments[1] = 10;
+            //}
+            document.write("改变arguments的参数值为10时："
+            	+ (arguments[0] + num2) + "<br />");
+            num2 = 5;
+            document.write("直接改变参数的值为5时："
+            	+ (arguments[0] + arguments[1]) + "<br />");
+	         
+        }
+
+//      doAdd(10, 20);        //20  15
+//      doAdd(30, 20);    //40  35
+		doAdd(20);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

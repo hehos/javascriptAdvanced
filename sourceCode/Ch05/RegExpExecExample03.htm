@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <title>RegExp exec() Example 2</title>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+        var text = "catcatcatcat";
+        var pattern1 = /.at/;
+        
+        var matches = pattern1.exec(text);        
+        console.log(matches.index);    //0
+        console.log(matches[0]);       //"cat"
+        console.log(pattern1.lastIndex);//0
+        console.log("----------------")
+
+
+        matches = pattern1.exec(text);        
+        console.log(matches.index);    //0
+        console.log(matches[0]);       //"cat"
+        console.log(pattern1.lastIndex);//0
+        console.log("----------------")
+
+
+        var name = '"a", "b"';
+        var p = /"([^"]*)"/g;
+        //        console.log(name.replace(p, "'$1'"));
+        var m = p.exec(name);
+        console.log(RegExp.$1);
+        console.log(m[0]);
+
+        m = p.exec(name);
+        console.log(RegExp.$1);
+        console.log(m[0]);
+
+//
+//        var pattern2 = /.at/g;
+//
+//        var matches = pattern2.exec(text);
+//        console.log(matches.index);    //0
+//        console.log(matches[0]);       //"cat"
+//        console.log(matches[1]);       //undefined
+//        console.log(pattern2.lastIndex);//3
+//        console.log("----------------")
+//
+//        matches = pattern2.exec(text);
+//        console.log(matches.index);    //5
+//        console.log(matches[0]);       //"bat"
+//        console.log(pattern2.lastIndex);//8
+//        console.log("----------------")
+//
+//        matches = pattern2.exec(text);
+//        matches = pattern2.exec(text);
+//        console.log(matches.index);    //
+//        console.log(matches[0]);       //
+//        console.log(pattern2.lastIndex);//
+//        console.log("----------------")
+//
+//
+//        console.log("将模式匹配重置为下标0位置")
+//        pattern2.lastIndex = 0;		//将模式匹配重置为下标0位置
+//        matches = pattern2.exec(text);
+//        console.log(matches.index);    //报错，Null.index;
+//        console.log(matches[0]);       //
+//        console.log(pattern2.lastIndex);//
+//        console.log(matches);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

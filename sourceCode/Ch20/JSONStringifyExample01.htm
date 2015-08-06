@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JSON Stringify Example</title>
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+
+</head>
+<body>
+    <p>This example serializes an object and passes in a filter array.</p>
+    <script type="text/javascript">
+        var book = {
+                        title: "Professional JavaScript",
+                        authors: [
+                            "Nicholas C. Zakas"
+                        ],
+                        edition: 3,
+                        year: 2011,
+                        isJieHun: false
+                   };
+
+        var jsonText = JSON.stringify(book, ["title", "edition"]);
+        console.log(jsonText);
+        jsonText = JSON.stringify(book);
+        console.log(jsonText);
+
+        var jsonObj = jQuery.parseJSON(jsonText);
+    </script>
+</body>
+</html>

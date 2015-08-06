@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Offset Dimensions Example</title>
+    <script type="text/javascript">
+    
+        function getElementLeft(element){
+            var actualLeft = element.offsetLeft;
+            var current = element.offsetParent;
+        	alert("最开始的actualLeft：" + actualLeft);
+        	
+            while (current !== null){   
+            	alert(current.innerHTML);
+            	alert("current.offsetLeft: " + current.offsetLeft)
+                actualLeft += current.offsetLeft;
+                current = current.offsetParent;
+            }
+        
+            return actualLeft;
+        }
+    
+        function getElementTop(element){
+            var actualTop = element.offsetTop;
+            var current = element.offsetParent;
+        
+            while (current !== null){        
+                actualTop += current.offsetTop;
+                current = current.offsetParent;
+            }
+        
+            return actualTop;
+        }
+    
+    
+        function getOffsetHeight(){
+            alert(document.getElementById("myDiv").offsetHeight);
+        }
+    
+        function getOffsetWidth(){
+            alert(document.getElementById("myDiv").offsetWidth);
+        }
+    
+        function getOffsetLeft(){
+            alert(document.getElementById("myDiv").offsetLeft);
+        }
+    
+        function getOffsetTop(){
+            alert(document.getElementById("myDiv").offsetTop);
+        }
+        
+        function getActualLeft(){
+            alert(getElementLeft(document.getElementById("myDiv")));
+        }
+        
+        function getActualTop(){
+            alert(getElementTop(document.getElementById("myDiv")));
+        }
+        
+  
+  		// 获取父元素的偏移量
+        function getElementLeft2(element){
+            var actualLeft = element.offsetLeft;
+            var current = element.offsetParent;
+        
+            while (current !== null){        
+                actualLeft += current.offsetLeft;
+                current = current.offsetParent;
+            }
+        
+            return actualLeft;
+        }
+    
+        function getElementTop2(element){
+            var actualTop = element.offsetTop;
+            var current = element.offsetParent;
+        
+            while (current !== null){        
+                actualTop += current.offsetTop;
+                current = current.offsetParent;
+            }
+        
+            return actualTop;
+        }
+    
+    
+        function getOffsetHeight2(){
+            alert(document.getElementById("myDivParent").offsetHeight);
+        }
+    
+        function getOffsetWidth2(){
+            alert(document.getElementById("myDivParent").offsetWidth);
+        }
+    
+        function getOffsetLeft2(){
+            alert(document.getElementById("myDivParent").offsetLeft);
+        }
+    
+        function getOffsetTop2(){
+            alert(document.getElementById("myDivParent").offsetTop);
+        }
+        
+        function getActualLeft2(){
+            alert(getElementLeft(document.getElementById("myDivParent")));
+        }
+        
+        function getActualTop2(){
+            alert(getElementTop(document.getElementById("myDivParent")));
+        }  
+    
+
+    </script>
+</head>
+<body>
+	<style type="text/css">
+	  /* 不用内联样式试试效果  */
+	  #myDiv {
+	  	width: 100px; height: 50px; background-color: red; border: 1px solid black;
+	  	
+	  	overflow: auto;
+	  }
+	</style>
+    <div style="margin: 20px">
+    	<!--  id="myDivParent"的元素有定位的时候，用offsetParent计算id="myDiv"在页面的偏移量时会有问题   -->
+        <div id="myDivParent" style="position: relative; padding: 20px; border: 10px solid #000000;">
+            <!--<div id="myDiv" style="width: 100px; height: 50px; background-color: red; border: 1px solid black"></div>-->
+            <div id="myDiv">一位美国广告人曾说，美国公司每年浪费的广告费用高达50%，
+            	而对于还未形成成熟的如快消品消费观念的中国消费者来说，涂料的电视广告
+            	浪费显然会更加严重。另一位国内知名的营销专家也曾痛心的表示“60%的涂料
+            	广告费都浪费掉了。更可惜的是，很多涂料企业也知道浪费，却不知道浪费在哪里”。</div>
+        </div>
+    </div>
+    <input type="button" value="Get Offset Height" onclick="getOffsetHeight()">
+    <input type="button" value="Get Offset Width" onclick="getOffsetWidth()">
+    <input type="button" value="Get Offset Left" onclick="getOffsetLeft()">
+    <input type="button" value="Get Offset Top" onclick="getOffsetTop()">
+    <br />
+    <input type="button" value="Get Actual Left" onclick="getActualLeft()">
+    <input type="button" value="Get Actual Top" onclick="getActualTop()">
+    <br />
+    <div class=""> offsetParent元素的特性值 </div>
+    <input type="button" value="Get Offset Height" onclick="getOffsetHeight2()">
+    <input type="button" value="Get Offset Width" onclick="getOffsetWidth2()">
+    <input type="button" value="Get Offset Left" onclick="getOffsetLeft2()">
+    <input type="button" value="Get Offset Top" onclick="getOffsetTop2()">
+    <br />
+    <input type="button" value="Get Actual Left" onclick="getActualLeft2()">
+    <input type="button" value="Get Actual Top" onclick="getActualTop2()">
+    
+</body>
+</html>

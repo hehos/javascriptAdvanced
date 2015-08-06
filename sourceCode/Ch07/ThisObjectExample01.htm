@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>This Object Example</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var name = "The Window";
+        
+        var object = {
+            name : "My Object",
+        
+            getNameFunc : function(){
+                return function(){
+                	var name = "变量";
+                	this.name = "闭包";
+                    return this.name;
+                };
+            }
+        };
+       	alert(window.name); // 闭包
+        alert(object.getNameFunc()());  //"The Window"
+       	alert(window.name); // 闭包
+		
+		var F1 = function() {
+			this.print = function() {
+				alert("表达式函数");
+			}
+		}
+		
+		var f = new F1();//new一个表达式的函数
+//		f.print();
+
+		function f2() {
+			var name = "变量";
+			alert(this.name);
+		}
+		f2.name = "函数的name属性";
+//		f2();//该函数执行时的活动对象是函数本身，
+		
+    </script>
+ 
+</body>
+</html>

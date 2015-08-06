@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RegExp test() Example</title>
+    <script type="text/javascript">
+        var text = "cat, bat, sat, fat";        
+        var pattern = /.at/;
+        
+        if (pattern.test(text)){
+            console.log("The pattern was matched.");
+        }
+
+        console.log(pattern.lastIndex);
+
+        pattern = /.at/g;
+        pattern.test(text);
+        console.log(pattern.lastIndex);
+        pattern.test(text);
+        console.log(pattern.lastIndex);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
