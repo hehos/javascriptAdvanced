@@ -14,22 +14,13 @@
 <script>
     var btn = document.getElementById("testDblclick");
     EventUtil.addHandler(btn, "mousedown", function () {
-        console.log("mousedown1");
+        console.log("mousedown");
     });
     EventUtil.addHandler(btn, "mouseup", function () {
-        console.log("mouseup1");
+        console.log("mouseup");
     });
     EventUtil.addHandler(btn, "click", function () {
-        console.log("click1");
-    });
-    EventUtil.addHandler(btn, "mousedown", function () {
-        console.log("mousedown2");
-    });
-    EventUtil.addHandler(btn, "mouseup", function () {
-        console.log("mouseup2");
-    });
-    EventUtil.addHandler(btn, "click", function () {
-        console.log("click2");
+        console.log("click");
     });
     EventUtil.addHandler(btn, "dblclick", function () {
         console.log("dblclick");
