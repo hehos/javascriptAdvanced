@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+
+<p>测试焦点事件的focus和blur是否支持火狐浏览器</p><br>
+
+<input id="testFocusEvent" type="text"
+       style="width: 400px; height: 30px; border: 1px solid #ddd;"
+       value="" />
+
+
+<script>
+    var input = document.getElementById("testFocusEvent");
+
+    EventUtil.addHandler(input, "focus", function() {
+        alert("获取了焦点");
+    });
+
+    EventUtil.addHandler(input, "blur", function() {
+        alert("失去了焦点");
+    });
+</script>
+</body>
+</html>

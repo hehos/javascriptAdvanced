@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="EventUtil.js"></script>
+</head>
+<body>
+<p> 测试除了IE8浏览器的双击事件触发流程 </p>
+
+<button id="testDblclick">触发双击事件</button>
+
+
+<script>
+    var btn = document.getElementById("testDblclick");
+    EventUtil.addHandler(btn, "mousedown", function () {
+        console.log("mousedown1");
+    });
+    EventUtil.addHandler(btn, "mouseup", function () {
+        console.log("mouseup1");
+    });
+    EventUtil.addHandler(btn, "click", function () {
+        console.log("click1");
+    });
+    EventUtil.addHandler(btn, "mousedown", function () {
+        console.log("mousedown2");
+    });
+    EventUtil.addHandler(btn, "mouseup", function () {
+        console.log("mouseup2");
+    });
+    EventUtil.addHandler(btn, "click", function () {
+        console.log("click2");
+    });
+    EventUtil.addHandler(btn, "dblclick", function () {
+        console.log("dblclick");
+    });
+</script>
+
+</body>
+</html>
