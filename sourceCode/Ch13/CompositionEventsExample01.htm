@@ -8,6 +8,9 @@
     <input type="text" id="myText" />
     <p>This example only works in browsers that support composition events. You'll need to use an input method editor (IME) to fire these events.</p>
     <script type="text/javascript">
+        var isSupported = document.implementation.hasFeature("CompositionEvent", "3.0");
+        alert(isSupported);c
+
         var textbox = document.getElementById("myText");
         if (document.implementation.hasFeature("CompositionEvent", "3.0")){
             EventUtil.addHandler(textbox, "compositionstart", function(event){

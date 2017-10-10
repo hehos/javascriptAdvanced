@@ -2,6 +2,11 @@
 <html>
 <head>
     <title>DOM Event Object Example</title>
+    <style>
+        .a {
+            overflow: auto;
+        }
+    </style>
 </head>
 <body>
     <input type="button" id="myBtn" value="Click Me" />
@@ -10,7 +15,16 @@
         btn.onclick = function(event){
             alert(event.currentTarget === this);
             alert(event.target === this);
-        };        
+        };
+
+
+        $(window).scroll(function () {
+            if( $(window).scrollTop > 20) {
+                $(".menu").addClass("fixed");
+            } else {
+                $(".menu").removeClass("fixed");
+            }
+        });
     </script>
 </body>
 </html>

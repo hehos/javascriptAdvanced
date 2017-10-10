@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8" >
     <title>Window Open Example 2</title>
 </head>
 <body>
     <script type="text/javascript">
-    
+
+        var wroxWin = null;
         function openNewWindow(){
-            var win = window.open('http://www.wrox.com/', 'wroxWindow', 'width=300,height=300,left=10,top=10');
-            win.resizeTo(500,500);
-            win.moveTo(100,100);
+          wroxWin = window.open('WindowOpenExample01.htm', 'wroxWindow', 'width=300,height=300,left=10,top=10');
+        }
+
+        function resizeTo() {
+          wroxWin.resizeTo(500,500);
+        }
+        function moveTo() {
+          wroxWin.moveTo(100,100);
+        }
+        function winClose() {
+          console.log(wroxWin);
+          wroxWin.close();
         }
         
-        window.open("http://www.wrox.com");
     </script>
     <p>This will open a new window/tab:
     <input type="button" value="Go to Wrox.com" onclick="openNewWindow()" /></p>
- 
+
+    <h3>下面的移动操作有一个域的问题，不在同一个域的窗口将被禁止操作。</h3>
+
+    <button onclick="resizeTo()">调整大小</button>
+    <button onclick="moveTo()">移动位置</button>
+    <button onclick="winClose()">关闭</button>
 </body>
 </html>

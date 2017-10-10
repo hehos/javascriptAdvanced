@@ -7,19 +7,33 @@
     <script type="text/javascript">
     
     var condition = true;
-    
-    //never do this!
-    if(condition){
-        function sayHi(){
-            alert("Hi!");
-        }
-    } else {
-        function sayHi(){
-            alert("Yo!");
-        }
-    }
 
-    sayHi();
+    //never do this!
+//    if(true){
+//        function sayHi(){
+//            alert("Hi!");
+//        }
+//    } else {
+//        function sayHi(){
+//            alert("Yo!");
+//        }
+//    }
+//    sayHi();
+//
+
+    (function () {
+        if(true){
+            function sayHi(){
+                alert("Hi!");
+            }
+        } else {
+            function sayHi(){
+                alert("Yo!");
+            }
+        }
+        sayHi();
+    })();
+
     </script>
  
 </body>
